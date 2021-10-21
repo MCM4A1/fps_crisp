@@ -8,7 +8,7 @@
     z-index: 20;
     top: 0;
     height: 5em;
-    padding: 1em;
+    padding: 1em 0;
     color: white;
     background: black;
     align-items: center;
@@ -86,7 +86,7 @@
     width: 1.5em;
     filter: invert(180);
     margin: auto;
-    padding:0 1em;
+    padding:0 .5em;
 };
 
 .navigation-menu-selected, .navigation-menu-item:hover{
@@ -113,6 +113,10 @@
     .navigation-wrap{
         height: 3em;
     }
+    .nav-img{
+        height: 2em;
+        width: 2em;
+    }
 
     .crisp-logo-wrapper{
         width: 40%;
@@ -122,7 +126,8 @@
     .mobile-nav-toggler{
         width: 30%;
         img{
-            height: 100%;
+            height: 50%;
+            margin:  auto 0;
         }
     }
 
@@ -133,7 +138,8 @@
     .mobile-only-navigation{
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
 
     .mobile-nav-slide{

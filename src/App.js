@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Navigation from './components/navigation/Navigation';
 import HomePageSlider from './components/homePage/HomePageSlider';
@@ -8,8 +8,10 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <HomePageSlider />
-      <BrandSelect />
+      <div className="main-content-scrollable">
+        <HomePageSlider />
+        <BrandSelect />
+      </div>
     </div>
   );
 }

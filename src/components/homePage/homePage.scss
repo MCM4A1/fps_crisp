@@ -16,7 +16,7 @@
     height: 1em;
     align-items: center;
     justify-content: center;
-    margin: 0 1em;
+    margin: 0 0em;
 }
 
 
@@ -83,7 +83,7 @@
 .slider-text{
     font-size: 6em;
     width: 50%;
-    text-align: justify;
+    text-align: left;
     border-right: 2px solid black;
     border-top: 2px solid;
     padding: 0.4em;
@@ -157,6 +157,7 @@
     display: flex;
     justify-content: flex-start;
     width: 50%;
+    height: 0;
 }
 
 .slider-arrow-wrap{ 
@@ -180,9 +181,17 @@
     display: flex;
     margin: 1em;
     border: 1px solid #c4c4c4;
-    legend{
-        padding: 0 1em;
-    }
+}
+.brand-select-wrap::after{
+    content: "CHOOSE YOUR BRAND";
+    height: 1em;
+    background: white;
+    left: calc(50% - 6em);
+    width: 10em;
+    position: absolute;
+    text-align: center;
+    padding: .5em 1em;
+    margin: -1em 0;
 }
 
 .brand-list{
@@ -193,7 +202,7 @@
     
 
     img{
-        max-width: 15%;
+        max-width: 14%;
         width: auto;
         height: auto;
         cursor: pointer;
@@ -248,7 +257,7 @@
         width: 100%;
         margin: 1em;
         .slider-text{
-            font-size: 3em;
+            font-size: 2.5em;
             border: none;
             text-align: center;
             width: 70%;
@@ -256,6 +265,7 @@
     }
 
     .slider-images{
+        justify-content: center;
         .promo-img-large{
             height: 80%;
         }
@@ -266,7 +276,7 @@
     
     .slider-content-wrap{
         flex-direction: column-reverse;
-        width: 100%;
+        width: 50%;
         .slider-images{
             height: 55%;
         }
@@ -300,15 +310,22 @@
             margin: auto;
         }
     }
+
+    .brand-select-wrap::after{
+        left: calc(50% - 5em);
+        width: 8em;
+        padding: 0.3em 1em;
+        font-size: small;
+    }
   }
 
   @media screen and (max-width: 700px) {
     .slider-images{
         .promo-img-large{
-            height: 70%;
+            //height: 70%;
         }
         .promo-img-small{
-            height: 60%;
+            //height: 60%;
         }
     }
     .slider-select-buttons{
@@ -319,10 +336,10 @@
   @media screen and (max-width: 400px) {
     .slider-images{
         .promo-img-large{
-            height: 60%;
+            height: 70%;
         }
         .promo-img-small{
-            height: 50%;
+            height: 60%;
         }
     }
   }

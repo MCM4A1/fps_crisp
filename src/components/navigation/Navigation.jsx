@@ -38,8 +38,8 @@ export class navigation extends Component {
                 </div>
                 <div className="navigation-menu-wrap">
                     <ul>
-                        {menuItems.map((item) =>{
-                            return <li className={this.state.page===item.value ? "navigation-menu-item navigation-menu-selected" : "navigation-menu-item"}>{item.text}</li>
+                        {menuItems.map((item, index) =>{
+                            return <li className={this.state.page===item.value ? "navigation-menu-item navigation-menu-selected" : "navigation-menu-item"} key={index}>{item.text}</li>
                         })}
                         <li className=" navigation-search-wrap"><img className="nav-img" src={searchIcon} alt="search" /> search</li>
                     </ul>
@@ -71,8 +71,8 @@ export class navigation extends Component {
                 </div>
                 <div className={this.state.showMobileNavigation ? "mobile-nav-slide mobile-nav-slide-opened" : "mobile-nav-slide" } >
                     <li onClick={this.toggleNavigation} className={"navigation-menu-item"}>close</li>
-                    {menuItems.map((item) =>{
-                        return <li className={this.state.page===item.value ? "navigation-menu-item navigation-menu-selected" : "navigation-menu-item"}>{item.text}</li>
+                    {menuItems.map((item,index) =>{
+                        return <li className={this.state.page===item.value ? "navigation-menu-item navigation-menu-selected" : "navigation-menu-item"} key={index}>{item.text}</li>
                     })}
                 </div>
             </header>

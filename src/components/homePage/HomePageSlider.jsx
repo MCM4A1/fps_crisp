@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import promoBackground from '../../images/promo/promo-background.png'
+//import promoBackground from '../../images/promo/promo-background.png'
 import promoGirlBlackDress from '../../images/promo/promo-girl-bigger.png'
 import promoGirlWhiteDress from '../../images/promo/promo-girl-smaller.png'
 import rectangleArrow from '../../images/sliders/slider-button-arrow.png'
@@ -11,6 +11,7 @@ export class HomePageSlider extends Component {
         super(props)
         this.state = {
             selectedIndex: 1,
+            swipeStart: "",
         }
     }
 
@@ -19,16 +20,31 @@ export class HomePageSlider extends Component {
     }
     changeSliderImage = () =>{
         this.setState({
-            selectedIndex: this.state.selectedIndex==1 ? 2 : 1,
+            selectedIndex: this.state.selectedIndex===1 ? 2 : 1,
         })
+    }
+
+    //Function currently does not check the direction of the swipe
+    //just the swipe event itself
+    
+    swipeStartHandler = (e)=>{
+        console.log("Swipe start: ",e.touches[0].clientX)
+        this.setState({
+            swipeStart: e.touches[0].clientX
+        })
+    }
+
+    swipeEndHandler = (e)=>{
+        if(e.changedTouches[0].clientX != this.state.swipeStart)
+            this.changeSliderImage()
     }
 
 
 
     render() {
         return (
-            <section className="slider-wrap">
-                <div className={this.state.selectedIndex == 1 ? "slider-moving-wrap" : "slider-moving-wrap slider-moving-wrap-toggle"}>
+            <section onTouchStart={this.swipeStartHandler} onTouchEnd={this.swipeEndHandler} className="slider-wrap">
+                <div className={this.state.selectedIndex === 1 ? "slider-moving-wrap" : "slider-moving-wrap slider-moving-wrap-toggle"}>
                     <div className="slider-content-wrap">
                         <div className="slider-text-wrap">
                             <div className="slider-text">
@@ -62,8 +78,8 @@ export class HomePageSlider extends Component {
                     
                 <div className="slider-action-buttons mobile-none">
                     <div className="slider-select-buttons">
-                        <div className={this.state.selectedIndex === 1 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
-                        <div className={this.state.selectedIndex === 2 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
+                        <div onClick={this.changeSliderImage} className={this.state.selectedIndex === 1 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
+                        <div onClick={this.changeSliderImage} className={this.state.selectedIndex === 2 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
                     </div>
                     <div className="slider-arrow-wrap">
                         <div onClick={this.changeSliderImage} className="slider-arrow-left">
@@ -80,8 +96,8 @@ export class HomePageSlider extends Component {
                         <img src={rectangleArrow} alt="previous" />
                     </div>
                     <div className="slider-select-buttons">
-                        <div className={this.state.selectedIndex === 1 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
-                        <div className={this.state.selectedIndex === 2 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
+                        <div  onClick={this.changeSliderImage} className={this.state.selectedIndex === 1 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
+                        <div  onClick={this.changeSliderImage} className={this.state.selectedIndex === 2 ? "slider-rectangle-filled slider-rectangle" : "slider-rectangle"}></div>
                     </div>
                     <div onClick={this.changeSliderImage} className="slider-arrow-right">
                         <img  src={rectangleArrow} alt="next" />

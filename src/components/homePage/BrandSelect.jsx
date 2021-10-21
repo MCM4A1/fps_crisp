@@ -21,14 +21,13 @@ export class BrandSelect extends Component {
             armaniImg
         ]
         return (
-            <fieldset className="brand-select-wrap">
-                <legend>CHOOSE YOUR BRAND</legend>
+            <section className="brand-select-wrap">
                 <div className="brand-list">
-                    {brandImageArray.map((brand) =>{
-                        return <img src={brand} alt="brand image" />
+                    {brandImageArray.map((brand,index) =>{
+                        return <img src={brand} alt="brand" key={index} />
                     })}
                 </div>
-            </fieldset>
+            </section>
         )
     }
 }
